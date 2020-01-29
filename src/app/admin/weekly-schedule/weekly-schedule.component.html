@@ -1,0 +1,149 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              
+            </div>
+            <div class="col-md-4">
+              <h3 class="headingOfTheTable">{{result[0] | date:'MMM dd'}} - {{result[6] | date:'MMM dd'}}</h3>
+            </div>
+             <div class="col-md-4">
+               <div class="btn-group" style="float: right;">
+                <button type="button" class="btn btn-outline-primary" (click)="prevButton()">Prev</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-primary" (click)="nextButton()">Next</button>
+               </div>
+             
+             </div>
+        
+              
+            </div>
+            
+            
+          
+         
+          <table class="table table-bordered" id="tableId">
+            <thead>
+              <tr>
+                <th>Drivers</th>
+                <th>
+                  {{result[0] | date: 'dd MMM yyyy'}}<br>
+                  Sunday
+                </th>
+                <th>
+                  {{result[1]  | date: 'dd MMM yyyy'}}<br>
+                  Monday
+                </th>
+                <th>
+                  {{result[2]  | date: 'dd MMM yyyy'}}<br>
+                  Tuesday
+                </th>
+                <th>
+                  {{result[3]  | date: 'dd MMM yyyy'}}<br>
+                  Wednesday
+                </th>
+                <th>
+                  {{result[4]  | date: 'dd MMM yyyy'}}<br>
+                  Thursday
+                </th>
+                <th>
+                  {{result[5]  | date: 'dd MMM yyyy'}}<br>
+                  Friday
+                </th>
+                <th>
+                  {{result[6]  | date: 'dd MMM yyyy'}}<br>
+                  Satuday
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let i of addRow' id='addRow[0]'>
+                <td>
+                  <select class="sizeOfDropDown browser-default custom-select custom-select-sm">
+                    <option selected>select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="sizeOfDropDown browser-default custom-select custom-select-sm">
+                    <option selected>select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="sizeOfDropDown browser-default custom-select custom-select-sm">
+                    <option selected>select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="sizeOfDropDown browser-default custom-select custom-select-sm">
+                    <option selected>select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="sizeOfDropDown browser-default custom-select custom-select-sm">
+                    <option selected>select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="sizeOfDropDown browser-default custom-select custom-select-sm">
+                    <option selected>select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="sizeOfDropDown browser-default custom-select custom-select-sm">
+                    <option selected>select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="sizeOfDropDown browser-default custom-select custom-select-sm">
+                    <option selected>select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </td>
+                <td>
+                  <i id="addIcon" class="medium material-icons" style="font-size:17px;cursor:pointer;" (click)=addRowInTable()>add_box
+                    
+                  </i>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+         
+            <button type="button" class="btn btn-primary" style="background-color:royalblue;" (click)="submitWeeklyData()">Submit</button>&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" style="background-color:black;" (click)="cancelWeeklyData()">Cancel</button>
+         
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>

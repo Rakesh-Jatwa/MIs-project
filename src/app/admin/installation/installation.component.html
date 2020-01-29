@@ -1,0 +1,249 @@
+<!-- forms for popup -->
+<form [formGroup]="InstallationTpye" (ngSubmit)="onSubmit()">
+  <div class="modal modal-angular fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h3>Add New</h3>
+          <hr>
+          <h4>Area</h4>
+          <hr>
+            <div>
+              <label>Area Name:</label>
+              <input typ="text" placeholder="Enter Timeslot"  formControlName="installation">
+              <!-- <div *ngIf="this.area.controls.Areaname.touched && this.area.controls.Areaname.pristine" class="danger"> field is required</div> -->
+
+            </div>
+            <div class="row" style="align-self: center;">
+              <button type="submit" class="primary">Update</button>
+              <button type="submit" data-dismiss="modal" aria-label="Close">cancel</button>
+            </div>
+        
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</form>
+<!-- popup forms ending -->
+<div *ngIf='!addOrders'>
+ <div class="main-content">
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="btn-toolbar addOrderButton">
+          <button class="btn btn-primary pull-right" style="background-color:orangered;" data-toggle="modal" data-target="#buy" >
+            Add Orders
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <br>
+      </div>
+      <div class="row">
+        <br>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+
+
+          <div class="card">
+            <div class="card-body">
+              <table id="example" class="row-border hover">
+                <thead>
+                  <tr>
+                    <th>S No.</th>
+                    <th>Type:</th>
+                   
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr >
+                    <td>weqweq</td>
+                    <td>qwrqrqwr</td>
+                 
+                    <td><button data-toggle="modal" data-target="#buy" ><i class="fa fa-pencil"></i></button>
+                      <button data-toggle="modal" data-target="#buy" ><i class="fa fa-trash"></i></button>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-content" *ngIf='addOrders'>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8" style="margin-top:-0.5%;">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Add Orders</h4>
+            <p class="card-category">Create the Orders</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="createOrderForm" (submit)="createOrder(createOrderForm.value)">
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Customer Name" formControlName='customerName' required>
+                  </mat-form-field>
+                  <span style="color: red;"
+                    *ngIf='createOrderForm.controls.customerName.invalid && (createOrderForm.controls.customerName.dirty || createOrderForm.controls.customerName.touched ) '>Please
+                    Enter the Name</span>
+                </div>
+
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Customer Email" type="email" formControlName='customerEmail'>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Customer Phone" type="tel" formControlName='customerPhone' required>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Installation Price" type="text" formControlName='installationPrice'>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Customer Adress" type="text" formControlName='customerAddress'
+                      required>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Favorite food</mat-label>
+                    <mat-select formControlName='customerArea'>
+                      <mat-option *ngFor="let food of foods" [value]="food" required>
+                        {{food}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Favorite food</mat-label>
+                    <mat-select formControlName='installationType'>
+                      <mat-option *ngFor="let food of foods" [value]="food">
+                        {{food}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Favorite food</mat-label>
+                    <mat-select formControlName='customerDate'>
+                      <mat-option *ngFor="let food of foods" [value]="food">
+                        {{food}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Favorite food</mat-label>
+                    <mat-select formControlName='customerTimeSlot'>
+                      <mat-option *ngFor="let food of foods" [value]="food">
+                        {{food}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Installation Details</label>
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput
+                      placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
+                      formControlName='installationDetails'></textarea>
+                  </mat-form-field>
+                  <!-- <div class="form-group">
+  
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div> -->
+                </div>
+              </div>
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Create Order</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"
+          (mapClick)="mapClicked($event)">
+
+          <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)"
+            [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable"
+            (dragEnd)="markerDragEnd(m, $event)">
+
+            <agm-info-window>
+              <strong>InfoWindow content</strong>
+            </agm-info-window>
+
+          </agm-marker>
+
+          <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'"
+            [circleDraggable]="true" [editable]="true">
+          </agm-circle>
+
+        </agm-map>
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup]="createOrderForm">
+                <div class="row">
+                  <div class="col-md-12">
+                    <mat-form-field class="example-full-width" style="height: 50%;">
+                      <input matInput placeholder="Location" type="text" formControlName='customerLocation'>
+                    </mat-form-field>
+                    <span>Click on Map to mark your Location or you can autosearch by location</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Longitude" type="text" formControlName='locationLongitude'>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Latitude" type="text" formControlName='locationLatitude'>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

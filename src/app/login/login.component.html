@@ -1,0 +1,49 @@
+<div class="wrapper wrapper-full-page">
+  <div class="page-header login-page header-filter" filter-color="black"
+    style="background-image: url('./assets/img/login.jpg'); background-size: cover; background-position: top center;height: 100%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+          <form #loginData=ngForm (submit)="loginSubmit(loginData.value)" class="form ng-untouched ng-pristine ng-valid" 
+            style="margin-top: 50%;">
+            <div class="card card-login">
+              <div class="card-header card-header-rose text-center">
+                <div><img style="color: white;" src="../../assets/img/logo.png" /></div>
+              </div>
+              <div class="card-body ">
+                <br>
+                <br>
+                
+               <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><i
+                          class="material-icons">email</i></span></div><input class="form-control" name="email" [(ngModel)]="loginData.email"
+                      placeholder="Email..." type="text" required><br><br>
+                      
+                  </div>
+                </span>
+                <span style="color: red;"
+      *ngIf='loginData.controls.email.invalid && loginData.controls.email.touched'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please
+      Enter the Username</span>
+                <br>
+                <br><span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><i
+                          class="material-icons">lock_outline</i></span></div><input class="form-control" name="password" [(ngModel)]="loginData.password"
+                      placeholder="Password..." type="password" required>
+                  </div>
+                </span>
+                <span style="color: red;"
+      *ngIf='loginData.controls.password.invalid && loginData.controls.password.touched'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please
+      Enter the password</span>
+              </div>
+              <div class="card-footer justify-content-center"><button type="submit" class="btn btn-rose btn-link btn-lg">Lets
+                  Go</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
